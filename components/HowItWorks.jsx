@@ -41,7 +41,7 @@ export default function HowItWorks() {
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="font-mk-latin text-5xl md:text-7xl lg:text-8xl text-white leading-none tracking-tight mb-12 md:mb-16"
         >
-          So funktioniert&apos;s
+          So funktioniert's
         </motion.h2>
 
         {/* Steps */}
