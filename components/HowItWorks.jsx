@@ -33,26 +33,15 @@ export default function HowItWorks() {
       />
 
       <div className="max-w-5xl mx-auto w-full">
-        {/* Section label */}
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-white/35 text-xs tracking-[0.4em] uppercase font-helvetica mb-8"
-        >
-          Wie es funktioniert
-        </motion.p>
-
         {/* Main heading */}
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="font-mk-latin text-5xl md:text-7xl lg:text-8xl text-white leading-none tracking-tight mb-20 md:mb-28"
+          className="font-mk-latin text-5xl md:text-7xl lg:text-8xl text-white leading-none tracking-tight mb-12 md:mb-16"
         >
-          So funktioniert's
+          So funktioniert&apos;s
         </motion.h2>
 
         {/* Steps */}
@@ -68,15 +57,15 @@ export default function HowItWorks() {
                 delay: i * 0.15,
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
-              className="group flex items-start gap-8 md:gap-16 py-10 border-b border-white/8 last:border-0"
+              className="group flex flex-col items-center text-center gap-2 py-10"
             >
               {/* Number */}
-              <span className="font-helvetica text-white/15 text-xs tracking-widest mt-1 w-6 flex-shrink-0 group-hover:text-white/30 transition-colors duration-500">
+              <span className="font-helvetica text-white/15 text-xs tracking-widest group-hover:text-white/30 transition-colors duration-500">
                 {step.number}
               </span>
 
               {/* Step text */}
-              <p className="font-mk-latin text-white/80 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide group-hover:text-white transition-colors duration-500 max-w-3xl">
+              <p className="font-helvetica text-white/80 text-xl md:text-2xl lg:text-3xl leading-relaxed group-hover:text-white transition-colors duration-500 max-w-3xl" style={{ letterSpacing: '-0.01em', fontWeight: 400 }}>
                 {step.text}
               </p>
             </motion.div>

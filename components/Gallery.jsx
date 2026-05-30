@@ -116,7 +116,7 @@ export default function Gallery() {
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
             whileHover={{ scale: 1.025 }}
-            className="flex-none relative group overflow-hidden rounded-2xl"
+            className="flex-none relative group overflow-hidden rounded-none"
             style={{
               scrollSnapAlign: 'start',
               width: 'clamp(260px, 38vw, 500px)',

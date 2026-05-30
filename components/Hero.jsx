@@ -74,6 +74,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.88 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+          style={{ marginTop: '10px' }}
         >
           <RosamondoLogo size={260} className="md:w-80 md:h-80" />
         </motion.div>
@@ -83,7 +84,8 @@ export default function Hero() {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mt-10 text-white font-mk-latin text-2xl md:text-4xl lg:text-5xl tracking-wide leading-snug max-w-2xl"
+          className="mt-10 text-white font-mk-latin text-2xl md:text-4xl lg:text-5xl leading-snug max-w-2xl"
+          style={{ letterSpacing: '-0.015em' }}
         >
           Der Marktplatz für zirkuläre Materialien
         </motion.h1>
@@ -99,20 +101,7 @@ export default function Hero() {
           wo überschüssige Materialien ein neues Leben bekommen.
         </motion.p>
 
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.2, duration: 1 }}
-          className="mt-16 flex flex-col items-center gap-2"
-        >
-          <span className="text-white/30 text-[10px] tracking-[0.35em] uppercase font-helvetica">Scroll</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-px h-8 bg-gradient-to-b from-white/40 to-transparent"
-          />
-        </motion.div>
+
       </motion.div>
     </section>
   )

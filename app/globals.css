@@ -35,6 +35,7 @@
   body {
     font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
+    letter-spacing: -0.01em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -70,6 +71,15 @@
   }
 
   .gallery-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel-track {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .carousel-track::-webkit-scrollbar {
     display: none;
   }
 }

@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 const navLinks = [
   { label: 'Über uns', href: '#ueber-uns' },
-  { label: 'Marktplatz', href: '#marktplatz' },
+  { label: 'Marktplatz', href: '/marktplatz' },
   { label: 'Anmelden', href: '#anmelden' },
   { label: 'Anbieter werden', href: '#anbieter' },
   { label: 'Blog', href: '#blog' },
@@ -51,7 +51,7 @@ export default function Header() {
           {/* Top-center: text wordmark */}
           <a
             href="/"
-            className="absolute left-1/2 -translate-x-1/2 text-white tracking-[0.22em] text-sm font-helvetica opacity-90 hover:opacity-100 transition-opacity select-none"
+            className="absolute left-1/2 -translate-x-1/2 text-white tracking-[-0.015em] text-sm font-helvetica opacity-90 hover:opacity-100 transition-opacity select-none"
           >
             rosamondo
           </a>
