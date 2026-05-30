@@ -33,7 +33,7 @@ export default function Header() {
           {/* Top-left: small SVG logo */}
           <a href="/" className="flex items-center opacity-90 hover:opacity-100 transition-opacity">
             <img
-              src="/logo.svg"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/logo.svg`}
               alt="Rosamondo"
               width={36}
               height={36}
