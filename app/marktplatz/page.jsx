@@ -2,22 +2,15 @@
 
 import { useRef, useEffect } from 'react'
 import Header from '../../components/Header'
-
-const images = [
-  { src: '/images/gallery/gallery-1.png', alt: 'Material 1' },
-  { src: '/images/gallery/gallery-2.png', alt: 'Material 2' },
-  { src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80', alt: 'Granit Textur' },
-  { src: 'https://images.unsplash.com/photo-1567958451986-2de427a4a0be?w=700&q=80', alt: 'Textilmaterial' },
-  { src: 'https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=700&q=80', alt: 'Atelier Material' },
-  { src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80', alt: 'Baumaterial' },
-]
+import { galleryImages } from '../../data/gallery'
+import { useDragScroll } from '../../hooks/useDragScroll'
 
 const CARD_W = 310
 const CARD_H = 230
 const GAP = 18
 
 export default function MarktplatzPage() {
-  const trackRef = useRef(null)
+  const { ref: trackRef, onMouseDown, onMouseUp, onMouseLeave, onMouseMove } = useDragScroll(1)
   const cardRefs = useRef([])
 
   useEffect(() => {
@@ -49,26 +42,7 @@ export default function MarktplatzPage() {
       track.removeEventListener('scroll', update)
       window.removeEventListener('resize', update)
     }
-  }, [])
-
-  const handleMouseDown = (e) => {
-    const el = e.currentTarget
-    el.dataset.dragging = '1'
-    el.dataset.startX = e.pageX
-    el.dataset.scrollLeft = el.scrollLeft
-    el.style.cursor = 'grabbing'
-    el.style.userSelect = 'none'
-  }
-  const handleMouseMove = (e) => {
-    if (e.currentTarget.dataset.dragging !== '1') return
-    const el = e.currentTarget
-    el.scrollLeft = Number(el.dataset.scrollLeft) - (e.pageX - Number(el.dataset.startX))
-  }
-  const handleMouseUp = (e) => {
-    e.currentTarget.dataset.dragging = '0'
-    e.currentTarget.style.cursor = 'grab'
-    e.currentTarget.style.userSelect = ''
-  }
+  }, [trackRef])
 
   return (
     <main
@@ -127,10 +101,10 @@ export default function MarktplatzPage() {
       {/* Carousel track */}
       <div
         ref={trackRef}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={onMouseUp}
+        onMouseLeave={onMouseLeave}
         style={{
           position: 'absolute',
           top: '50%',
@@ -148,7 +122,7 @@ export default function MarktplatzPage() {
           scrollbarWidth: 'none',
         }}
       >
-        {images.map((img, i) => (
+        {galleryImages.map((img, i) => (
           <div
             ref={(el) => (cardRefs.current[i] = el)}
             key={i}

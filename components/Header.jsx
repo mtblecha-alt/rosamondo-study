@@ -3,14 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence, useScroll } from 'framer-motion'
 import Image from 'next/image'
-
-const navLinks = [
-  { label: 'Über uns', href: '#ueber-uns' },
-  { label: 'Marktplatz', href: '/marktplatz' },
-  { label: 'Anmelden', href: '#anmelden' },
-  { label: 'Anbieter werden', href: '#anbieter' },
-  { label: 'Blog', href: '#blog' },
-]
+import { navLinks } from '../data/navigation'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)

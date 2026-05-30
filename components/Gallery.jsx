@@ -1,66 +1,11 @@
 'use client'
 
-import { useRef, useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
-
-const images = [
-  {
-    src: '/images/gallery/gallery-1.png',
-    alt: 'Industrielle Materialien — Referenzbild 1',
-    caption: 'Materialien im Kreislauf',
-  },
-  {
-    src: '/images/gallery/gallery-2.png',
-    alt: 'Kreatives Werkstattambiente — Referenzbild 2',
-    caption: 'Werkstatt & Design',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80',
-    alt: 'Industrielle Halle mit Materialien',
-    caption: 'Produktionsflächen',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1567958451986-2de427a4a0be?w=900&q=80',
-    alt: 'Textilmaterialien und Gewebe',
-    caption: 'Halbfertige Materialien',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80',
-    alt: 'Architekturfotografie — urbaner Raum',
-    caption: 'Urbane Räume',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=900&q=80',
-    alt: 'Kreative Atelierszene',
-    caption: 'Kreative Ateliers',
-  },
-]
+import { galleryImages } from '../data/gallery'
+import { useDragScroll } from '../hooks/useDragScroll'
 
 export default function Gallery() {
-  const scrollRef = useRef(null)
-  const [isDragging, setIsDragging] = useState(false)
-  const [startX, setStartX] = useState(0)
-  const [scrollLeft, setScrollLeft] = useState(0)
-
-  const onMouseDown = useCallback((e) => {
-    setIsDragging(true)
-    setStartX(e.pageX - scrollRef.current.offsetLeft)
-    setScrollLeft(scrollRef.current.scrollLeft)
-    scrollRef.current.style.cursor = 'grabbing'
-  }, [])
-
-  const onMouseUp = useCallback(() => {
-    setIsDragging(false)
-    if (scrollRef.current) scrollRef.current.style.cursor = 'grab'
-  }, [])
-
-  const onMouseMove = useCallback((e) => {
-    if (!isDragging) return
-    e.preventDefault()
-    const x = e.pageX - scrollRef.current.offsetLeft
-    const walk = (x - startX) * 1.8
-    scrollRef.current.scrollLeft = scrollLeft - walk
-  }, [isDragging, startX, scrollLeft])
+  const { ref: scrollRef, onMouseDown, onMouseUp, onMouseLeave, onMouseMove } = useDragScroll()
 
   return (
     <section
@@ -101,10 +46,10 @@ export default function Gallery() {
         }}
         onMouseDown={onMouseDown}
         onMouseUp={onMouseUp}
-        onMouseLeave={onMouseUp}
+        onMouseLeave={onMouseLeave}
         onMouseMove={onMouseMove}
       >
-        {images.map((image, i) => (
+        {galleryImages.map((image, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, y: 30 }}
