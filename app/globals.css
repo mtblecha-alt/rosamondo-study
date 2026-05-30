@@ -2,23 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'MKLatin';
-  src: url('/fonts/MKLatinLight.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* HelveticaNeue falls back to system font on browsers that can't parse .ttc */
-@font-face {
-  font-family: 'HelveticaNeue';
-  src: local('Helvetica Neue'), local('HelveticaNeue'), url('/fonts/HelveticaNeue.ttc') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 @layer base {
   *, *::before, *::after {
     box-sizing: border-box;

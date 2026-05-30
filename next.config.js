@@ -2,7 +2,10 @@
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  basePath: '/rosamondo-study',
+  env: {
+    NEXT_PUBLIC_BASE_PATH: '/rosamondo-study',
+  },
   images: {
     unoptimized: true,
     remotePatterns: [
