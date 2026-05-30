@@ -1,11 +1,11 @@
 export const galleryImages = [
   {
-    src: '/images/gallery/gallery-1.png',
+    src: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/gallery/gallery-1.png`,
     alt: 'Industrielle Materialien — Referenzbild 1',
     caption: 'Materialien im Kreislauf',
   },
   {
-    src: '/images/gallery/gallery-2.png',
+    src: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/gallery/gallery-2.png`,
     alt: 'Kreatives Werkstattambiente — Referenzbild 2',
     caption: 'Werkstatt & Design',
   },

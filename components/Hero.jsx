@@ -48,7 +48,7 @@ export default function Hero() {
           style={{ y: bgY }}
         >
           <img
-            src="/images/background.png"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/background.png`}
             alt=""
             className="w-full h-full object-cover"
             style={{ filter: 'brightness(0.55) saturate(0.9)' }}
